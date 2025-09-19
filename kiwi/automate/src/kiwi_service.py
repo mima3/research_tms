@@ -1,7 +1,7 @@
 import ssl
 from datetime import datetime
 from tcms_api import TCMS
-from typing import Iterable
+from typing import Iterable, Optional
 
 
 # 自己認証のSSL対応 検証目的のためだけに使用
@@ -28,7 +28,7 @@ class KiwiProductService(KiwiService):
         priority_id: int = 1,
         is_automated: bool = True,
         notes: str = "",
-        tags: Iterable[str] = [],
+        tags: Optional[Iterable[str]] = None,
         case_status: int = 1
     ) -> dict:
         # ref.

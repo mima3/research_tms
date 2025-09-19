@@ -47,5 +47,5 @@ pipenv run python -m src.tcms_junit_plugin ./demo_report.xml
 kiwitcms-pytest-pluginでやっているようなことを自前でやる。
 
 ```py
-pipenv run python -m src.sample 
+pipenv run python -m src.sample
 ```
