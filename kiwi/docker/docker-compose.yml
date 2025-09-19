@@ -1,0 +1,21 @@
+services:
+  kiwi_web_dev:
+    container_name: kiwi_web_dev
+    image: pub.kiwitcms.eu/kiwitcms/kiwi:latest
+    restart: always
+    ports:
+      - "80:8080"
+      - "443:8443"
+    environment:
+      # ← SQLite を使う
+      KIWI_DB_ENGINE: django.db.backends.sqlite3
+      KIWI_DB_NAME: sqlite/kiwi.sqlite3
+      # メールを送らないような設定
+      EMAIL_BACKEND: "django.core.mail.backends.console.EmailBackend"
+      # まえはHTTPSの強制を無効にできたが今はできない
+      # KIWI_DONT_ENFORCE_HTTPS: "true"
+    volumes:
+      - ./uploads:/Kiwi/uploads
+      - ./sqlite:/Kiwi/sqlite
+      # 独自証明書を使うなら /Kiwi/ssl をマウント
+      # - ./ssl:/Kiwi/ssl

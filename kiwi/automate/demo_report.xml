@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="ExampleProject" tests="5" failures="1" errors="1" skipped="1" time="2.345">
+  <!-- スイート1：API層の例 -->
+  <testsuite name="api.v1.user" tests="3" failures="1" errors="0" skipped="0"
+             hostname="localhost" time="1.234" timestamp="2025-09-19T10:00:00">
+    <properties>
+      <property name="commit" value="abc1234"/>
+      <property name="env" value="staging"/>
+    </properties>
+
+    <!-- 成功 -->
+    <testcase classname="api.v1.user.UserTests" name="test_create_user_ok" time="0.111">
+      <system-out><![CDATA[
+        POST /users -> 201 Created
+      ]]></system-out>
+    </testcase>
+
+    <!-- 失敗（アサーション） -->
+    <testcase classname="api.v1.user.UserTests" name="test_get_user_returns_profile" time="0.222">
+      <failure type="AssertionError" message="expected status 200 but got 404"><![CDATA[
+Traceback (most recent call last):
+  File "tests/api/test_user.py", line 42, in test_get_user_returns_profile
+    assert resp.status_code == 200
+AssertionError: expected 200, got 404
+      ]]></failure>
+      <system-err><![CDATA[
+WARN: fallback profile not found
+      ]]></system-err>
+    </testcase>
+
+    <!-- 成功 -->
+    <testcase classname="api.v1.user.UserTests" name="test_update_user_ok" time="0.333"/>
+  </testsuite>
+
+  <!-- スイート2：UI/E2Eの例 -->
+  <testsuite name="ui.e2e.login" tests="2" failures="0" errors="1" skipped="1"
+             hostname="localhost" time="1.111" timestamp="2025-09-19T10:00:30">
+    <!-- スキップ（理由つき） -->
+    <testcase classname="ui.e2e.LoginSuite" name="test_login_with_saml" time="0.000">
+      <skipped message="SAML is disabled on this build"/>
+    </testcase>
+
+    <!-- エラー（未処理例外） -->
+    <testcase classname="ui.e2e.LoginSuite" name="test_login_with_password" time="1.111">
+      <error type="RuntimeError" message="Unhandled exception during setup"><![CDATA[
+Traceback (most recent call last):
+  File "tests/ui/test_login.robot", line 7, in Suite Setup
+    Open Browser keyword failed
+RuntimeError: ChromeDriver not found in PATH
+      ]]></error>
+    </testcase>
+  </testsuite>
+</testsuites>

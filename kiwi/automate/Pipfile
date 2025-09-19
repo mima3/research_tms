@@ -1,0 +1,32 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+verify_ssl = true
+
+default = ["pypi"]
+
+[packages]
+kiwitcms-pytest-plugin = ">=12.8.1"
+"kiwitcms-junit.xml-plugin" = ">=12.8.1"
+tcms-api = ">=12.8.1"
+
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+flake8 = "==7.1.1"
+black = "==24.10.0"
+pyright = "*"
+
+[requires]
+python_version = "3.13"
+
+[scripts]
+lint = "flake8 ./src --ignore=E203,E501,W503,W504 --max-complexity=10"
+fix = "black ./src --line-length=128"
