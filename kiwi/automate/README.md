@@ -20,7 +20,7 @@ https://kiwitcms.org/blog/atodorov/2018/11/05/test-runner-plugin-specification/
 実行：
 
 ```py
-pipenv run pytest --kiwitcms src.test_plugin_kiwi.py
+pipenv run pytest -p tcms_pytest_plugin --kiwitcms src/test_plugin_kiwi.py
 ```
 
 テスト計画とテストケースを作成してテストが実行される。 
@@ -37,7 +37,7 @@ pipenv run pytest --kiwitcms src.test_plugin_kiwi.py
 ```bash
 export TCMS_PLAN_ID=1
 export TCMS_PRODUCT="製品A"
-export TCMS_PRODUCT_VERSION="ver1.0"
+export TCMS_PRODUCT_VERSION="unspecified"
 export TCMS_BUILD="unspecified"
 pipenv run python -m src.tcms_junit_plugin ./demo_report.xml
 ```
