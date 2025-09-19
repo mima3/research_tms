@@ -15,7 +15,8 @@ cd kiwi/docker
 docker compose up -d
 ```
 
-**注意1**:今回はテスト用にDBをsqliteにしています。本番運用する場合はpostgresqlかmysqlを設定してください。
+**注意1**:今回はテスト用にDBをsqliteにしています。本番運用する場合はMariaDBやPostgreSQLを設定してください。
+SQLite で動作はしますが、本番運用は非推奨になっています。特にスキーマ変更を含むアップグレードで壊れやすいです。
 
 **注意2**:今回はメールの送信を停止しています。コンテナ上のEMAIL_BACKEND環境変数でメール送信方法を制御可能です。
 

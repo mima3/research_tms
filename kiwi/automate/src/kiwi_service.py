@@ -4,7 +4,7 @@ from tcms_api import TCMS
 from typing import Iterable
 
 
-# 自己認証のSSL対応
+# 自己認証のSSL対応 検証目的のためだけに使用
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
