@@ -12,7 +12,7 @@ services:
       KIWI_DB_NAME: sqlite/kiwi.sqlite3
       # メールを送らないような設定
       EMAIL_BACKEND: "django.core.mail.backends.console.EmailBackend"
-      # まえはHTTPSの強制を無効にできたが今はできない
+      # 以前はHTTPS強制を無効化できましたが、現在はできません。
       # KIWI_DONT_ENFORCE_HTTPS: "true"
     volumes:
       - ./uploads:/Kiwi/uploads
