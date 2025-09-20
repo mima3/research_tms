@@ -1,0 +1,27 @@
+services:
+  squash-tm-pg:
+    container_name: squash-tm-pg
+    environment:
+      POSTGRES_DB: squashtm
+      POSTGRES_USER: squashtm
+      POSTGRES_PASSWORD: MustB3Ch4ng3d
+    image: postgres:17
+    ports:
+      - 5432:5432
+
+  squash-tm:
+    image: squashtest/squash
+    depends_on:
+      - squash-tm-pg
+    environment:
+      SPRING_PROFILES_ACTIVE: postgresql
+      SPRING_DATASOURCE_URL: jdbc:postgresql://squash-tm-pg:5432/squashtm
+      SPRING_DATASOURCE_USERNAME: squashtm
+      SPRING_DATASOURCE_PASSWORD: MustB3Ch4ng3d
+    ports:
+      - 8090:8080/tcp
+    volumes:
+      - squash-tm-logs:/opt/squash-tm/logs
+
+volumes:
+  squash-tm-logs:
