@@ -1,0 +1,10 @@
+{
+  "name": "pw-otf-node-demo",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "^1.53.0"
+  },
+  "scripts": {
+    "test": "playwright test"
+  }
+}

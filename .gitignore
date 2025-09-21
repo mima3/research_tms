@@ -1,2 +1,4 @@
 .pytest_cache
 *.sqlite3
+tmp/
+node_modules/

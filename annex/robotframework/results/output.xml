@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.13.1 on darwin)" generated="2025-09-20T11:52:57.254134" rpa="false" schemaversion="5">
+<suite id="s1" name="Open Browser" source="/Users/itagakimasaki/dev/research_tms/annex/robotframework/tests/open_browser.robot">
+<test id="s1-t1" name="Open Google" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-20T11:52:57.487130" level="INFO">Opening browser 'Chrome' to base url 'https://www.google.com'.</msg>
+<msg time="2025-09-20T11:52:58.739475" level="WARN">The chromedriver version (131.0.6778.69) detected in PATH at /usr/local/bin/chromedriver might not be compatible with the detected chrome version (140.0.7339.133); currently, chromedriver 140.0.7339.185 is recommended for chrome 140.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-09-20T11:53:01.846288" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-09-20T11:53:01.847039" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
+Current browser version is 140.0.7339.133 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x000000010a60dad8 chromedriver + 7105240
+1   chromedriver                        0x000000010a605a7a chromedriver + 7072378
+2   chromedriver                        0x0000000109fa8d80 chromedriver + 400768
+3   chromedriver                        0x0000000109fe7702 chromedriver + 657154
+4   chromedriver                        0x0000000109fe6699 chromedriver + 652953
+5   chromedriver                        0x0000000109fe10cf chromedriver + 630991
+6   chromedriver                        0x0000000109fdc384 chromedriver + 611204
+7   chromedriver                        0x000000010a02858f chromedriver + 923023
+8   chromedriver                        0x000000010a027b86 chromedriver + 920454
+9   chromedriver                        0x000000010a01c1d3 chromedriver + 872915
+10  chromedriver                        0x0000000109fea762 chromedriver + 669538
+11  chromedriver                        0x0000000109feb73e chromedriver + 673598
+12  chromedriver                        0x000000010a5d3b60 chromedriver + 6867808
+13  chromedriver                        0x000000010a5d7a90 chromedriver + 6883984
+14  chromedriver                        0x000000010a5b58c7 chromedriver + 6744263
+15  chromedriver                        0x000000010a5d851e chromedriver + 6886686
+16  chromedriver                        0x000000010a5a4fc4 chromedriver + 6676420
+17  chromedriver                        0x000000010a5f41d8 chromedriver + 7000536
+18  chromedriver                        0x000000010a5f4396 chromedriver + 7000982
+19  chromedriver                        0x000000010a605658 chromedriver + 7071320
+20  libsystem_pthread.dylib             0x00007ff812100df1 _pthread_start + 99
+21  libsystem_pthread.dylib             0x00007ff8120fc857 thread_start + 15
+</msg>
+<arg>https://www.google.com</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-09-20T11:52:57.486882" elapsed="4.375408">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
+Current browser version is 140.0.7339.133 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x000000010a60dad8 chromedriver + 7105240
+1   chromedriver                        0x000000010a605a7a chromedriver + 7072378
+2   chromedriver                        0x0000000109fa8d80 chromedriver + 400768
+3   chromedriver                        0x0000000109fe7702 chromedriver + 657154
+4   chromedriver                        0x0000000109fe6699 chromedriver + 652953
+5   chromedriver                        0x0000000109fe10cf chromedriver + 630991
+6   chromedriver                        0x0000000109fdc384 chromedriver + 6...
+    [ Message content over the limit has been removed. ]
+11  chromedriver                        0x0000000109feb73e chromedriver + 673598
+12  chromedriver                        0x000000010a5d3b60 chromedriver + 6867808
+13  chromedriver                        0x000000010a5d7a90 chromedriver + 6883984
+14  chromedriver                        0x000000010a5b58c7 chromedriver + 6744263
+15  chromedriver                        0x000000010a5d851e chromedriver + 6886686
+16  chromedriver                        0x000000010a5a4fc4 chromedriver + 6676420
+17  chromedriver                        0x000000010a5f41d8 chromedriver + 7000536
+18  chromedriver                        0x000000010a5f4396 chromedriver + 7000982
+19  chromedriver                        0x000000010a605658 chromedriver + 7071320
+20  libsystem_pthread.dylib             0x00007ff812100df1 _pthread_start + 99
+21  libsystem_pthread.dylib             0x00007ff8120fc857 thread_start + 15</status>
+</kw>
+<kw name="Title Should Be" owner="SeleniumLibrary">
+<arg>Google</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" start="2025-09-20T11:53:01.863136" elapsed="0.000122"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-09-20T11:53:01.864097" elapsed="0.000462"/>
+</kw>
+<status status="FAIL" start="2025-09-20T11:52:57.485528" elapsed="4.379296">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 131
+Current browser version is 140.0.7339.133 with binary path /Applications/Google Chrome.app/Contents/MacOS/Google Chrome; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#sessionnotcreatedexception
+Stacktrace:
+0   chromedriver                        0x000000010a60dad8 chromedriver + 7105240
+1   chromedriver                        0x000000010a605a7a chromedriver + 7072378
+2   chromedriver                        0x0000000109fa8d80 chromedriver + 400768
+3   chromedriver                        0x0000000109fe7702 chromedriver + 657154
+4   chromedriver                        0x0000000109fe6699 chromedriver + 652953
+5   chromedriver                        0x0000000109fe10cf chromedriver + 630991
+6   chromedriver                        0x0000000109fdc384 chromedriver + 6...
+    [ Message content over the limit has been removed. ]
+11  chromedriver                        0x0000000109feb73e chromedriver + 673598
+12  chromedriver                        0x000000010a5d3b60 chromedriver + 6867808
+13  chromedriver                        0x000000010a5d7a90 chromedriver + 6883984
+14  chromedriver                        0x000000010a5b58c7 chromedriver + 6744263
+15  chromedriver                        0x000000010a5d851e chromedriver + 6886686
+16  chromedriver                        0x000000010a5a4fc4 chromedriver + 6676420
+17  chromedriver                        0x000000010a5f41d8 chromedriver + 7000536
+18  chromedriver                        0x000000010a5f4396 chromedriver + 7000982
+19  chromedriver                        0x000000010a605658 chromedriver + 7071320
+20  libsystem_pthread.dylib             0x00007ff812100df1 _pthread_start + 99
+21  libsystem_pthread.dylib             0x00007ff8120fc857 thread_start + 15</status>
+</test>
+<status status="FAIL" start="2025-09-20T11:52:57.256316" elapsed="4.609853"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Open Browser" id="s1" pass="0" fail="1" skip="0">Open Browser</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-20T11:52:58.739475" level="WARN">The chromedriver version (131.0.6778.69) detected in PATH at /usr/local/bin/chromedriver might not be compatible with the detected chrome version (140.0.7339.133); currently, chromedriver 140.0.7339.185 is recommended for chrome 140.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
