@@ -10,6 +10,7 @@ services:
       - 5432:5432
 
   squash-tm:
+    container_name: squash-tm
     image: squashtest/squash
     depends_on:
       - squash-tm-pg
@@ -18,8 +19,12 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://squash-tm-pg:5432/squashtm
       SPRING_DATASOURCE_USERNAME: squashtm
       SPRING_DATASOURCE_PASSWORD: MustB3Ch4ng3d
+      SQUASH_REST_API_JWT_SECRET: ${SQUASH_REST_API_JWT_SECRET}
     ports:
       - 8090:8080/tcp
+    volumes:
+      - ./plugins:/opt/squash-tm/plugins
+
   #########################################
   # 以下のサービスはテストケースの管理には不要
   # squashtmからテスト実行をおこなうのに使用している

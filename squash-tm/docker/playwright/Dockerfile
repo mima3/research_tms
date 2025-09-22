@@ -7,4 +7,9 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/* \
  && pip3 install --no-cache-dir --break-system-packages opentf-agent
 
+RUN npm i -g playwright @playwright/test \
+ && npx playwright install --with-deps
+
+ENV NODE_PATH=/usr/lib/node_modules
+
 WORKDIR /workspace
