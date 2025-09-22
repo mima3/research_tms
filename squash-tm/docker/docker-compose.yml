@@ -20,8 +20,39 @@ services:
       SPRING_DATASOURCE_PASSWORD: MustB3Ch4ng3d
     ports:
       - 8090:8080/tcp
+  #########################################
+  # 以下のサービスはテストケースの管理には不要
+  # squashtmからテスト実行をおこなうのに使用している
+  #########################################
+  orchestrator:
+    image: squashtest/squash-orchestrator:latest
+    container_name: orchestrator
+    restart: unless-stopped
+    ports:
+      - "7774:7774"   # receptionist (POST /workflows)
+      - "7775:7775"   # observer (GET /workflows/<id>)
+      - "7776:7776"   # killswitch
+      - "7796:7796"   # insights
+      - "38368:38368" # eventbus
+      - "34537:34537" # localstore
+      - "24368:24368" # agent channel
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:7774/workflows"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
     volumes:
-      - squash-tm-logs:/opt/squash-tm/logs
+      - ./trusted_keys:/etc/squashtf
+    environment:
+      DEBUG: DEBUG
+      OPENTF_DEBUG: DEBUG
 
-volumes:
-  squash-tm-logs:
+  playwright-agent:
+    build: ./playwright
+    container_name: playwright-agent
+    depends_on: [orchestrator]
+    environment:
+      TOKEN: ${TOKEN}
+    command: >
+      sh -lc "opentf-agent --tags linux,playwright --host http://orchestrator --port 24368
+      --token \"$TOKEN\" --verify false --script_path /tmp"
